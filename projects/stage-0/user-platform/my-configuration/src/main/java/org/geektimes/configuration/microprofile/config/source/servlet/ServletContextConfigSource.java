@@ -1,6 +1,7 @@
 package org.geektimes.configuration.microprofile.config.source.servlet;
 
 import org.geektimes.configuration.microprofile.config.source.MapBasedConfigSource;
+import org.springframework.beans.factory.serviceloader.ServiceLoaderFactoryBean;
 
 import javax.servlet.ServletContext;
 import java.util.Enumeration;
@@ -14,6 +15,7 @@ public class ServletContextConfigSource extends MapBasedConfigSource {
 
     public ServletContextConfigSource(ServletContext servletContext) {
         super(format("ServletContext[path:%s] Init Parameters", servletContext.getContextPath()), 500);
+
         this.servletContext = servletContext;
     }
 

@@ -1,6 +1,7 @@
 package org.geektimes.configuration.microprofile.config.source.servlet;
 
 import org.eclipse.microprofile.config.Config;
+import org.eclipse.microprofile.config.ConfigProvider;
 import org.eclipse.microprofile.config.spi.ConfigBuilder;
 import org.eclipse.microprofile.config.spi.ConfigProviderResolver;
 
@@ -22,6 +23,7 @@ public class ServletContextConfigInitializer implements ServletContextListener {
         ServletContextConfigSource servletContextConfigSource = new ServletContextConfigSource(servletContext);
         // 获取当前 ClassLoader
         ClassLoader classLoader = servletContext.getClassLoader();
+
         ConfigProviderResolver configProviderResolver = ConfigProviderResolver.instance();
         ConfigBuilder configBuilder = configProviderResolver.getBuilder();
         // 配置 ClassLoader
